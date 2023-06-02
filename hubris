@@ -1,0 +1,422 @@
+---[[ locals ]] --
+Settings = {
+    Farm = false,
+    Farm2 = false,
+    Method = "Sword",
+    AutoHeal = false,
+    AutoChest = false,
+    AutoSkill = false,
+    AutoOrb = false,
+    AutoBuy = false,
+    Skills = {
+           Z = false,
+           X = false,
+           C = false,
+           V = false,
+           B = false,}}
+---[[ GUI]]---
+local UILibrary = loadstring(game:HttpGet("https://gist.github.com/NotHubris/2c71715c8ec7ec2aff93404bfdf3eb57/raw"))()
+local MainUI = UILibrary.Load("Hubris Hub's Project Slayer Dungeon")
+local MainPage = MainUI.AddPage("Main")
+local FirstPage = MainUI.AddPage("Dungeon Farm")
+local SecondPage = MainUI.AddPage("Auto Skills")
+local ThirdPage = MainUI.AddPage("Auto Item buy")
+local FourthPage = MainUI.AddPage("Others")
+--------------------------[[ LABEL ]] --------------------------
+local FirstLabel = MainPage.AddLabel("About Us")
+local SecondLabel = MainPage.AddLabel("Made by Hubris Hub")
+local SecondLabel = MainPage.AddLabel("NotHubris#8152")
+local ThirdLabel = MainPage.AddButton("Discord", function()end)
+-------------------------- [[ VARIABLES]]  --------------------------
+   local Plr = game:GetService("Players").LocalPlayer
+   local TweenService = game:GetService("TweenService")
+   local Plr = game:GetService("Players").LocalPlayer
+   local Data = game:GetService("ReplicatedStorage")["Player_Data"][Plr.Name]
+   local current_tween
+   local farming_tween
+   local noclip_tween
+   local reached_place
+   local Jumbo 
+   local oldpos
+  getgenv().lastnpcpos = nil
+function args(style, count)
+    return { 
+	[1] = style,
+	[2] = Plr, 
+	[3] = Plr.Character,
+	[4] = Plr.Character:WaitForChild("HumanoidRootPart"),
+	[5] = Plr.Character:WaitForChild("Humanoid"),
+	[6] = count,
+	[7] = nil, 
+	[8] = nil
+    } 
+end
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("Sword_Combat_Slash", 1)))
+-------------------------- [[ game CHECK]] --------------------------
+if  game.PlaceId ~= 11468075017 then 
+    game.StarterGui:SetCore("SendNotification", {	
+			Title = "Game not supported";	
+			Text = "";	
+			Duration = 0.2;})
+    return end
+-------------------------- [[ TweenService]] --------------------------
+function TeleportTween(dist, AdditionalCFrame)
+       if Plr.Character:FindFirstChild("HumanoidRootPart") and Plr.Character:FindFirstChild("Humanoid") then
+           if AdditionalCFrame then
+               local tweenInfo = TweenInfo.new((Plr.Character:WaitForChild("HumanoidRootPart").Position - dist.Position).magnitude / 300, Enum.EasingStyle.Linear)
+               current_tween = TweenService:Create(Plr.Character:WaitForChild("HumanoidRootPart"), tweenInfo, {CFrame = dist * AdditionalCFrame})
+           else 
+               local tweenInfo = TweenInfo.new((Plr.Character:WaitForChild("HumanoidRootPart").Position - dist.Position).magnitude / 300, Enum.EasingStyle.Linear)
+               current_tween = TweenService:Create(Plr.Character:WaitForChild("HumanoidRootPart"), tweenInfo, {CFrame = dist})
+           end current_tween:Play() noclip_tween = true current_tween.Completed:Wait() current_tween = nil  noclip_tween = false end end
+           --------------------------
+           --------------------------
+           --------------------------
+           
+local function Attack()
+if game.Players.LocalPlayer:WaitForChild("combotangasd123").Value <= 0 and Settings.Method == "Sword"  then
+    if Settings.AutoSkill == true then
+    if game.Players.LocalPlayer.Character:FindFirstChild("Equiped") == nil then
+ for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+    if not v:IsA("Tool") then continue end
+    if v:FindFirstChild("SwordIsEquiped") then
+v.Parent = game.Players.LocalPlayer.Character
+end
+end
+        end
+for i,v in next, Settings.Skills do
+if v then using_move = true end
+game:GetService("VirtualInputManager"):SendKeyEvent(v, i, false, game)
+using_move = false
+game:GetService("VirtualInputManager"):SendKeyEvent(false, i, false, game)
+end
+end
+for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                    if  not  v.Parent:IsA("Tool") then continue end
+                    if not v:IsA("LocalScript") then continue end
+                    if not v.Name == "LocalScript" then continue end
+                if  v ~= nil then
+                v:Destroy()
+                end
+end
+wait(0.13)
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("Sword_Combat_Slash", 1)))  
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("Sword_Combat_Slash", 2))) 
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("Sword_Combat_Slash", 3)))  
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("Sword_Combat_Slash", 4))) 
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("Sword_Combat_Slash", 919))) 
+wait()
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("Sword_Combat_Slash", 1)))  
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("Sword_Combat_Slash", 2))) 
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("Sword_Combat_Slash", 3)))  
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("Sword_Combat_Slash", 4))) 
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("Sword_Combat_Slash", 919))) 
+wait()
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("Sword_Combat_Slash", 1)))  
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("Sword_Combat_Slash", 2))) 
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("Sword_Combat_Slash", 3)))  
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("Sword_Combat_Slash", 4))) 
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("Sword_Combat_Slash", 919))) 
+repeat wait() until game.Players.LocalPlayer:WaitForChild("combotangasd123").Value >= 15
+elseif game.Players.LocalPlayer:WaitForChild("combotangasd123").Value <= 0 and Settings.Method == "Fist" then
+    if Settings.AutoSkill == true then
+    if game.Players.LocalPlayer.Character:FindFirstChild("Equiped") == nil then
+ for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+    if not v:IsA("Tool") then continue end
+    if v:FindFirstChild("SwordIsEquiped") then
+v.Parent = game.Players.LocalPlayer.Character
+end
+end
+        end
+for i,v in next, Settings.Skills do
+if v then using_move = true end
+game:GetService("VirtualInputManager"):SendKeyEvent(v, i, false, game)
+using_move = false
+game:GetService("VirtualInputManager"):SendKeyEvent(false, i, false, game)
+end
+end
+for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                    if  not  v.Parent:IsA("Tool") then continue end
+                    if not v:IsA("LocalScript") then continue end
+                    if not v.Name == "LocalScript" then continue end
+                if  v ~= nil then
+                v:Destroy()
+                end
+end
+wait(0.13)
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("fist_combat", 1)))
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("fist_combat", 2))) 
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("fist_combat", 3))) 
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("fist_combat", 4))) 
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("fist_combat", 919))) 
+wait()
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("fist_combat", 1)))
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("fist_combat", 2))) 
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("fist_combat", 3))) 
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("fist_combat", 4))) 
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("fist_combat", 919))) 
+wait()
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("fist_combat", 1)))
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("fist_combat", 2))) 
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("fist_combat", 3))) 
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("fist_combat", 4))) 
+game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S:FireServer(unpack(args("fist_combat", 919))) 
+repeat wait() until game.Players.LocalPlayer:WaitForChild("combotangasd123").Value >= 15
+end
+end
+            --------------------------[[[Anti AFK]]] --------------------------
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+game.NetworkClient.ChildRemoved:Connect(function()
+  game:GetService("TeleportService"):Teleport(game.PlaceId)
+end)
+game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(function(child)
+    if child.Name == 'ErrorPrompt' and child:FindFirstChild('MessageArea') and child.MessageArea:FindFirstChild("ErrorFrame") then
+        game:GetService("TeleportService"):Teleport(game.PlaceId)
+    end
+end)
+--------------------------
+task.spawn(function()
+       while task.wait() do
+           if noclip_tween then
+               Plr.Character:WaitForChild("Humanoid"):ChangeState(11)
+           end
+           if Plr.Character.Humanoid:GetState() == Enum.HumanoidStateType.Dead or game.Players.LocalPlayer.Character == nil then
+               Settings.Farm = false
+               print("U Died")
+                print("Farm = ", Settings.Farm)
+               current_tween:Cancel()
+               current_tween = nil
+               end
+       end
+end)
+-------------------------- [[ Farming]] --------------------------
+local FirstToggle = FirstPage.AddToggle("Auto Dungeon", false, function(Farm)
+if Farm == true then
+     Settings.Farm2 = true
+     Settings.Farm = true
+     else if Farm == false then
+     Settings.Farm = false
+     Settings.Farm2 = false
+         end
+end
+repeat wait() 
+    if game:GetService("Players").LocalPlayer:FindFirstChild("leaderstats") == nil then
+    Plr.Character.HumanoidRootPart.CFrame = CFrame.new(4995.4458, -147.985947, 2030.08264, -0.067819126, 0, 0.997697651, 0, 1, 0, -0.997697651, 0, -0.067819126)
+end
+until  game:GetService("Players").LocalPlayer:FindFirstChild("leaderstats") ~= nil 
+repeat wait() until #game:GetService("Workspace").Mobs:GetChildren() > 0
+
+
+
+
+while  Settings.Farm2 == true do
+if  Settings.Farm2 == false then return end
+repeat wait() until Settings.Farm == true 
+if Settings.Farm == true then
+pcall (function()
+for i, v in pairs(game:GetService("Workspace").Mobs:GetDescendants()) do
+       if not v:IsA("Part") then continue end if v.Name ~= "HumanoidRootPart" then continue end
+       if v.Parent.Humanoid.Health > 0 and Settings.Farm == true then
+----------------------------------------------------- Tween
+getgenv().lastnpcpos = v.CFrame
+TeleportTween(v.CFrame, CFrame.new(0, 10, 0))
+while v.Parent.Humanoid.Health > 0 and Settings.Farm == true and Plr.Character.Humanoid:GetState() ~= Enum.HumanoidStateType.Dead do
+-----------------------------------------------------
+if game.Players.LocalPlayer:WaitForChild("combotangasd123").Value >= 15  and Settings.Farm == true then
+-----------------------------------------------------
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame * CFrame.new(0, 40, 0)
+else if game.Players.LocalPlayer:WaitForChild("combotangasd123").Value <= 0  and v.Parent.Humanoid.Health > 0  and Settings.Farm == true then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame * CFrame.new(0, 0, 3.5) 
+if Settings.AutoSkill == true then
+    if game.Players.LocalPlayer.Character:FindFirstChild("Equiped") == nil then
+ for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+    if not v:IsA("Tool") then continue end
+    if v:FindFirstChild("SwordIsEquiped") then
+v.Parent = game.Players.LocalPlayer.Character
+end
+end
+        end
+for i,v in next, Settings.Skills do
+if v then using_move = true end
+game:GetService("VirtualInputManager"):SendKeyEvent(v, i, false, game)
+using_move = false
+game:GetService("VirtualInputManager"):SendKeyEvent(false, i, false, game)
+end
+end
+for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                    if  not  v.Parent:IsA("Tool") then continue end
+                    if not v:IsA("LocalScript") then continue end
+                    if not v.Name == "LocalScript" then continue end
+                if  v ~= nil then
+                v:Destroy()
+                end
+end
+wait(0.13)
+Attack()
+end
+end
+task.wait()
+end --- while
+end
+end
+if Settings.AutoChest == true then
+local chest = game:GetService("Workspace").Debree:FindFirstChild("Loot_Chest")
+             if chest and #chest:WaitForChild("Drops"):GetChildren() > 0 then
+                   local remote = chest:WaitForChild("Add_To_Inventory")
+
+                   for _,v in next, chest:WaitForChild("Drops"):GetChildren() do
+                       if not game:GetService("ReplicatedStorage")["Player_Data"][Plr.Name].Inventory:FindFirstChild(v.Name, true) then
+                           remote:InvokeServer(v.Name)
+                           else if v.Name == "Jumbo Health Regen Elixir" or v.Name == "Jumbo Stamina Elixir" or v.Name == "Health Regen Elixir" or v.Name == " Stamina Elixir" or v.Name == "Jumbo Health Elixir" or v.Name == "Health Elixir"then
+                             remote:InvokeServer(v.Name)
+           end
+           end
+            end
+         end
+end
+    
+
+end)
+end
+wait()
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(18)
+end
+end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------- [[ Methods]] --------------------------
+local FirstDropdown = FirstPage.AddDropdown("Farm Method", {
+"Sword","Fist"}, function(Method)
+if Method == "Sword" then
+    Settings.Method = "Sword"
+    else if Method == "Fist" then
+        Settings.Method = "Fist"
+        end
+    end
+  print("Method", Settings.Method)
+end)
+-----------------------------------[[ Chest]] -----------------------------------
+local FirstToggle = FirstPage.AddToggle("Auto Chest", false, function(Chest)
+    if Chest == true then
+        Settings.AutoChest = true
+        else if Chest == false then
+            Settings.AutoChest = false
+        end
+    end
+      print("Auto Chest", Settings.AutoChest)
+    end)
+------------------------------------[[ Heal]] ------------------------------------
+----------------------------------[[ Orb]] ----------------------------------
+local FirstToggle = FirstPage.AddToggle("Auto Orb", false, function(Heal)
+    if Heal == true then
+        Settings.AutoOrb = true
+        else if Heal == false then
+            Settings.AutoOrb = false
+        end
+    end
+    print("Auto Orb", Settings.AutoOrb)
+    game.Workspace.Map.DescendantAdded:Connect(function(v)
+        if Settings.AutoOrb == true then
+            if v:IsA("TouchTransmitter") then
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 0)
+            
+            end
+        end
+        
+end)
+end)
+-------------------------------------[[ Skills]] -------------------------------------e
+local FirstToggle = SecondPage.AddToggle("Enable AutoSkill", false, function(Skills)
+      if Skills == true then
+        Settings.AutoSkill = true
+        else if Skills == false then
+            Settings.AutoSkill = false
+        end
+      end
+
+end)
+local FirstToggle = SecondPage.AddToggle("Auto Z", false, function(Skills)
+      if Skills == true then
+        Settings.Skills.Z = true
+        else if Skills == false then
+            Settings.Skills.Z = false
+        end
+        end
+end)
+local FirstToggle = SecondPage.AddToggle("Auto X", false, function(Skills)
+       if Skills == true then
+        Settings.Skills.X = true
+        else if Skills == false then
+            Settings.Skills.X = false
+        end
+        end
+end)
+local FirstToggle = SecondPage.AddToggle("Auto C", false, function(Skills)
+        if Skills == true then
+        Settings.Skills.C = true
+        else if Skills == false then
+            Settings.Skills.C = false
+        end
+        end
+end)
+local FirstToggle = SecondPage.AddToggle("Auto V", false, function(Skills)
+        if Skills == true then
+        Settings.Skills.V = true
+        else if Skills == false then
+            Settings.Skills.V = false
+        end
+        end
+end)
+local FirstToggle = SecondPage.AddToggle("Auto B", false, function(Skills)
+     if Skills == true then
+        Settings.Skills.B = true
+        else if Skills == false then
+            Settings.Skills.B = false
+        end
+        end
+end)
+-------------------------------------------------- [[ Auto buys]] --------------------------------------------------
+local FirstToggle = ThirdPage.AddToggle("Auto buy Elixir",false, function(v)
+    if v == true then 
+        Settings.AutoBuy = true
+        else if v == false then
+            Settings.AutoBuy = false
+    end
+    end
+end)
+---------------------------------------------[[ Tps]] ---------------------------------------------
+local FirstToggle = FourthPage.AddButton("TP Mods if you died", function()
+
+   Plr.Character.HumanoidRootPart.CFrame = lastnpcpos * CFrame.new (0, 5, 0)
+
+end)
+local FirstToggle = FourthPage.AddButton("TP to Lobby", function()
+
+    Plr.Character.HumanoidRootPart.CFrame = CFrame.new(6587.10693, -38.2178421, 1879.76111)
+
+end)
+local FirstToggle = FourthPage.AddButton("TP to Dungeon modes", function()
+
+    Plr.Character.HumanoidRootPart.CFrame = CFrame.new(5126.41162, -139.268311, 2037.04761)
+
+end)
