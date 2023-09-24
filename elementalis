@@ -1,6 +1,5 @@
 --Thanks for using PixelRealms.world
 
-repeat task.wait() until game:IsLoaded()
 getgenv().autofarm = true
 
 local Players = game:GetService("Players")
@@ -16,14 +15,6 @@ local UseSword = Services.WeaponService.RF.UseSword
 function createDungeon(name, difficulty, join, hardcore)
     CreateParty:InvokeServer(name, difficulty, join, not hardcore and "Normal")
     StartParty:InvokeServer(GetPartyFromPlayer:InvokeServer(LocalPlayer)['Data']['UUID'])
-end
-
-function retry()
-    VoteOn:InvokeServer("Retry")
-end
-
-function goNext()
-    VoteOn:InvokeServer("Next")
 end
 
 if game.PlaceId == 10515146389 then
