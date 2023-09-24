@@ -148,7 +148,4 @@ while getgenv().autofarm and task.wait() do
         killMob(mob)
         pickupShit()
     end
-    if game:GetService("Players").LocalPlayer.PlayerGui.DungeonComplete.Main.Visible then
-        retry()
-    end
 end
