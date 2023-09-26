@@ -219,9 +219,6 @@ function updateTarget()
         if currentTarget then
             attackMob(currentTarget)
         end
-         if game:GetService("Players").LocalPlayer.PlayerGui.DungeonComplete.Main.Visible then
-       
-        retry()
     end
         
         wait()
